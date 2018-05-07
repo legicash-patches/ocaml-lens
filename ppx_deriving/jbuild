@@ -1,0 +1,10 @@
+(jbuild_version 1)
+
+(library
+ ((name ppx_deriving_lens)
+  (public_name ppx_deriving_lens)
+  (modules (ppx_deriving_lens))
+  (kind ppx_rewriter)
+  (preprocess (pps (ppx_deriving.std ppx_deriving.api ppx_tools_versioned.metaquot_406)))
+  (ppx_runtime_libraries (lens))
+  (libraries (lens ppx_deriving.api ppx_tools_versioned.metaquot_406))))

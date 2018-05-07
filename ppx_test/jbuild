@@ -1,0 +1,18 @@
+(jbuild_version 1)
+
+(library
+ ((name test_deriving_lens)
+  (modules (test_deriving_lens))
+  (preprocess (pps (ppx_deriving.std ppx_deriving_lens)))
+  ;;(preprocess (action (run ppxfind -legacy ppx_deriving_lens,ppx_deriving.std --as-pp ${<})))
+  (libraries (lens oUnit))))
+
+(executable
+ ((name test_lens)
+  (modules (test_lens))
+  (libraries (test_deriving_lens ppx_deriving_lens))))
+
+(alias
+ ((name runtest)
+  (deps (test_lens.exe))
+  (action (run ${<}))))

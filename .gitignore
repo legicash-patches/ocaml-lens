@@ -3,3 +3,9 @@ setup.log
 setup.data
 *.byte
 *.native
+*.install
+*.cmi
+*.cmo
+*.cmt
+*.annot
+.merlin

@@ -1,0 +1,42 @@
+opam-version: "1.2"
+maintainer: "Paolo Donadeo <p.donadeo@gmail.com>"
+authors: ["Alessandro Strada <alessandro.strada@gmail.com>"]
+homepage: "https://github.com/pdonadeo/ocaml-lens"
+bug-reports: "https://github.com/pdonadeo/ocaml-lens/issues"
+dev-repo: "https://github.com/pdonadeo/ocaml-lens.git"
+license: "BSD-3-clause"
+build: [
+  ["jbuilder" "subst"] {pinned}
+  ["jbuilder" "build" "-p" name "-j" jobs]
+]
+build-test: [ "jbuilder" "runtest" "-p" name "-j" jobs ]
+depends: [
+  "lens"
+  "ppx_deriving" { build }
+  "ppx_tools" { build }
+  "ppx_core"
+  "ppx_driver"
+  "ppx_metaquot"
+  "ppxfind"
+  "jbuilder"                {build & >= "1.0+beta12"}
+  "ocaml-migrate-parsetree" {>= "0.4"}
+]
+
+depends: [
+]
+available: [ ocaml-version >= "4.03.0" ]
+
+
+depopts: [
+  "ppx_deriving" { build }
+  "ppx_tools" { build }
+]
+
+
+depends: [
+  "ppx_core"
+  "ppx_driver"
+  "ppx_metaquot"
+  "jbuilder"                {build & >= "1.0+beta12"}
+  "ocaml-migrate-parsetree" {>= "0.4"}
+]

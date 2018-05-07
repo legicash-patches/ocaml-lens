@@ -1,0 +1,18 @@
+opam-version: "1.2"
+maintainer: "Paolo Donadeo <p.donadeo@gmail.com>"
+authors: ["Alessandro Strada <alessandro.strada@gmail.com>"]
+homepage: "https://github.com/pdonadeo/ocaml-lens"
+bug-reports: "https://github.com/pdonadeo/ocaml-lens/issues"
+dev-repo: "https://github.com/pdonadeo/ocaml-lens.git"
+license: "BSD-3-clause"
+build: [
+  ["jbuilder" "subst"] {pinned}
+  ["jbuilder" "build" "-p" name "-j" jobs]
+]
+build-test: [ "jbuilder" "runtest" "-p" name "-j" jobs ]
+install: ["ocaml" "setup.ml" "-install"]
+depends: [
+  "jbuilder" {build & >= "1.0+beta12"}
+  "ounit" { build }
+]
+available: [ ocaml-version >= "4.03.0" ]
