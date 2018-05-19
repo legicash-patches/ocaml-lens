@@ -127,7 +127,9 @@ let () =
     ()
   ))
 
+(* Seemingly not needed after all. I don't understand this stuff.
 let () =
   Migrate_parsetree.Driver.register ~name:deriver
     (module Migrate_parsetree.OCaml_current)
     (fun _ _ -> Ppx_deriving.mapper)
+ *)
