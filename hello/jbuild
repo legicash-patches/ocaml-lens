@@ -1,0 +1,12 @@
+(jbuild_version 1)
+
+(executable
+ ((name hello_lens)
+  (modules (hello_lens))
+  (preprocess (pps (ppx_deriving.std ppx_deriving_lens)))
+  (libraries (ppx_deriving_lens lens))))
+
+(alias
+ ((name runtest)
+  (deps (hello_lens.exe))
+  (action (run ${<}))))
