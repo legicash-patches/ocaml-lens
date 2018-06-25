@@ -1,41 +1,15 @@
-# OASIS_START
-# DO NOT EDIT (digest: a3c674b4239234cbbe53afe090018954)
-
-SETUP = ocaml setup.ml
-
-build: setup.data
-	$(SETUP) -build $(BUILDFLAGS)
-
-doc: setup.data build
-	$(SETUP) -doc $(DOCFLAGS)
-
-test: setup.data build
-	$(SETUP) -test $(TESTFLAGS)
+# Makefile for ocaml-lens; uses jbuilder
 
 all:
-	$(SETUP) -all $(ALLFLAGS)
+	@ echo "Building ocaml-lens via jbuilder"
+	@ jbuilder build @install
 
-install: setup.data
-	$(SETUP) -install $(INSTALLFLAGS)
-
-uninstall: setup.data
-	$(SETUP) -uninstall $(UNINSTALLFLAGS)
-
-reinstall: setup.data
-	$(SETUP) -reinstall $(REINSTALLFLAGS)
+install:
+	@ echo "Installing ocaml-lens via jbuilder"
+	@ jbuilder install
 
 clean:
-	$(SETUP) -clean $(CLEANFLAGS)
+	@ echo "Cleaning ocaml-lens via jbuilder"
+	@ jbuilder clean
 
-distclean:
-	$(SETUP) -distclean $(DISTCLEANFLAGS)
-
-setup.data:
-	$(SETUP) -configure $(CONFIGUREFLAGS)
-
-configure:
-	$(SETUP) -configure $(CONFIGUREFLAGS)
-
-.PHONY: build doc test all install uninstall reinstall clean distclean configure
-
-# OASIS_STOP
+.PHONY: all install clean
